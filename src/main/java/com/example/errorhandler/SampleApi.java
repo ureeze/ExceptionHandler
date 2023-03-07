@@ -1,9 +1,10 @@
 package com.example.errorhandler;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @RestController
 @RequestMapping("/sample")
@@ -19,10 +20,21 @@ public class SampleApi {
         }
     }
 
+    @PostMapping
+    public void test2(@RequestBody @Valid Member member) {
+
+    }
+
 
     public static class Member {
+        @NotEmpty
         private String name;
+        @Email
         private String email;
+
+        public Member() {
+
+        }
 
         public Member(String name, String email) {
             this.name = name;

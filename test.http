@@ -1,4 +1,0 @@
-### GET request with a header
-GET localhost:8080/sample?value=none
-###
-POST localhost:8080/sample?value=value
